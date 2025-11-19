@@ -6,4 +6,13 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\SizeFintech.Domain\SizeFintech.Domain.csproj" />
+    <ProjectReference Include="..\SizeFintech.Infra\SizeFintech.Infra.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Validations\Recebivel\CadastroEmpresa\" />
+  </ItemGroup>
+
 </Project>
