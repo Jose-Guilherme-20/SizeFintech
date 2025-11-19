@@ -7,9 +7,10 @@ namespace SizeFintech.Application.Services.Recebivel.CadastroEmpresa
     public class CadastrarEmpresaService : ICadastrarEmpresaService
     {
 
-        public async Task<ResponseCadastrarEmpresaViewModel> CadastrarEmpresaAsync(RequestCadastrarEmpresaViewModel request)
+        public async Task<ResponseCadastrarEmpresaViewModel> ExecuteAsync(RequestCadastrarEmpresaViewModel request)
         {
-            
+
+            return new ResponseCadastrarEmpresaViewModel { };
         }
     }
 }

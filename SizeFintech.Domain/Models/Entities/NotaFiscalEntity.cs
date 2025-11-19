@@ -9,5 +9,6 @@ namespace SizeFintech.Domain.Models.Entities
         public int EmpresaId { get; set; }
         public int? CarrinhoId { get; set; }
         public CarrinhoEntity? Carrinho { get; set; }
+        public EmpresaEntity Empresa { get; set; }
     }
 }
