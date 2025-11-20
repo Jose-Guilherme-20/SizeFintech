@@ -15,4 +15,8 @@
     <Folder Include="Validations\Recebivel\CadastroEmpresa\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="12.1.0" />
+  </ItemGroup>
+
 </Project>
