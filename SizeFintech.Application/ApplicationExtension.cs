@@ -1,8 +1,8 @@
 
 using Microsoft.Extensions.DependencyInjection;
-using SizeFintech.Application.Services.DomainNotification;
-using SizeFintech.Application.UseCases.Recebivel.CadastroEmpresa;
+using SizeFintech.Application.UseCases.Recebivel.InsertCompany;
 using SizeFintech.Domain.Interfaces.Notification;
+using SizeFintech.Domain.Models.Notification;
 
 namespace SizeFintech.Application
 {
@@ -12,7 +12,7 @@ namespace SizeFintech.Application
         {
 
             #region UseCases
-            services.AddScoped<ICadastrarEmpresaUseCase, CadastrarEmpresaUseCase>();
+            services.AddScoped<IInsertCompanyUseCase, InsertCompanyUseCase>();
             #endregion
 
             #region Services

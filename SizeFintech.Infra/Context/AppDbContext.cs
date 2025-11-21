@@ -10,9 +10,9 @@ namespace SizeFintech.Infra.Context
         {
         }
 
-        public DbSet<EmpresaEntity> Empresa { get; set; }
-        public DbSet<NotaFiscalEntity> NotaFiscal { get; set; }
-        public DbSet<CarrinhoEntity> Carrinho { get; set; }
+        public DbSet<CompanyEntity> Empresa { get; set; }
+        public DbSet<InvoiceEntity> NotaFiscal { get; set; }
+        public DbSet<CartEntity> Carrinho { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

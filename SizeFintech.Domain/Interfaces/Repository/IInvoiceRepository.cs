@@ -1,7 +1,7 @@
 ﻿
 namespace SizeFintech.Domain.Interfaces.Repository
 {
-    public interface IEmpresaRepository
+    public interface IInvoiceRepository
     {
     }
 }

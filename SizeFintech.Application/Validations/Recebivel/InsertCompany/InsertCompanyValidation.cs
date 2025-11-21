@@ -3,11 +3,11 @@ using FluentValidation;
 using SizeFintech.Application.ViewModels.Recebivel.CadastroEmpresa.Request;
 using SizeFintech.Domain.Models.Enums;
 
-namespace SizeFintech.Application.Validations.Recebivel.CadastroEmpresa
+namespace SizeFintech.Application.Validations.Recebivel.InsertCompany
 {
-    public class CadastrarEmpresaValidation : AbstractValidator<RequestCadastrarEmpresaViewModel>
+    public class InsertCompanyValidation : AbstractValidator<RequestInsertCompanyViewModel>
     {
-        public CadastrarEmpresaValidation()
+        public InsertCompanyValidation()
         {
             RuleFor(x => x.Nome)
            .NotEmpty().WithMessage("O nome é obrigatório.")

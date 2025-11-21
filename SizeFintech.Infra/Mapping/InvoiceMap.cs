@@ -5,13 +5,13 @@ using SizeFintech.Domain.Models.Entities;
 
 namespace SizeFintech.Infra.Mapping
 {
-    public class NotaFiscalMap : BaseMap<NotaFiscalEntity>
+    public class InvoiceMap : BaseMap<InvoiceEntity>
     {
-        public override void Configure(EntityTypeBuilder<NotaFiscalEntity> builder)
+        public override void Configure(EntityTypeBuilder<InvoiceEntity> builder)
         {
             base.Configure(builder);
 
-            builder.ToTable("NotalFiscal");
+            builder.ToTable("Invoice");
 
             builder.Property(x => x.ValorBruto)
                 .HasColumnType("decimal(18,2)")

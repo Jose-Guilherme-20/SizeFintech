@@ -5,9 +5,9 @@ using SizeFintech.Infra.Context;
 
 namespace SizeFintech.Infra.Repository
 {
-    public class CarrinhoRepository : EntityBaseRepository<CarrinhoEntity>, ICarrinhoRepository
+    public class CartRepository : EntityBaseRepository<CartEntity>, ICartRepository
     {
-        public CarrinhoRepository(AppDbContext context) : base(context)
+        public CartRepository(AppDbContext context) : base(context)
         {
         }
     }

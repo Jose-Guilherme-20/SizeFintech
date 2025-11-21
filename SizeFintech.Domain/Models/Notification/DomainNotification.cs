@@ -1,8 +1,7 @@
 using FluentValidation.Results;
 using SizeFintech.Domain.Interfaces.Notification;
-using SizeFintech.Domain.Models.Notification;
 
-namespace SizeFintech.Application.Services.DomainNotification
+namespace SizeFintech.Domain.Models.Notification
 {
     public class DomainNotification : IDomainNotification
     {

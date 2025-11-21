@@ -21,9 +21,9 @@ namespace SizeFintech.Infra
 
             #region Repositories
             services.AddScoped(typeof(Domain.Interfaces.Repository.IRepositoryBase<>), typeof(Repository.EntityBaseRepository<>));
-            services.AddScoped<IEmpresaRepository, EmpresaRepository>();
-            services.AddScoped<ICarrinhoRepository, CarrinhoRepository>();
-            services.AddScoped<INotaFiscalRepository, NotaFiscalRepository>();
+            services.AddScoped<ICompanyRepository, CompanyRepository>();
+            services.AddScoped<ICartRepository, CartRepository>();
+            services.AddScoped<IInvoiceRepository, InvoiceRepository>();
             #endregion
 
             return services;
