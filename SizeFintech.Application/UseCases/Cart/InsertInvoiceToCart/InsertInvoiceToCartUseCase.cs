@@ -36,6 +36,9 @@ namespace SizeFintech.Application.UseCases.Cart.InsertInvoiceToCart
 
             var cartEntity = await AddOrUpdateCartAsync(invoiceEntity);
 
+            if (cartEntity is null)
+                return new ResponseInsertInvoiceToCartViewModel();
+
             invoiceEntity.Carrinho = cartEntity;
             invoiceRepository.Update(invoiceEntity);
 
@@ -69,7 +72,6 @@ namespace SizeFintech.Application.UseCases.Cart.InsertInvoiceToCart
             {
                 cartEntity.TotalBruto += invoiceEntity.ValorBruto;
                 cartEntity.TotalLiquido += invoiceEntity.ValorLiquido!.Value;
-
                 
             }
 

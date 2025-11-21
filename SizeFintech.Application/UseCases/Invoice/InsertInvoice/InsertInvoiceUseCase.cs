@@ -69,7 +69,7 @@ namespace SizeFintech.Application.UseCases.Invoice.InsertInvoice
 
         public async Task<bool> ValidateInvoiceNumber(RequestInsertInvoiceViewModel request)
         {
-            var invoice = await invoiceRepository.GetByParamsAsync(i => i.Numero == request.Numero);
+            var invoice = await invoiceRepository.GetByParamsAsync(i => i.Numero == request.Numero && i.DataExclusao == null);
 
             if (invoice is not null)
             {

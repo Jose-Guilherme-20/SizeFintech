@@ -6,7 +6,7 @@ namespace SizeFintech.Application.ViewModels.Invoice.InsertInvoice.Request
     public class RequestInsertInvoiceViewModel
     {
         public int Numero { get; set; }
-        public int ValorBruto { get; set; }
+        public decimal ValorBruto { get; set; }
         public DateTime DataVencimento { get; set; }
         public int EmpresaId { get; set; }
 

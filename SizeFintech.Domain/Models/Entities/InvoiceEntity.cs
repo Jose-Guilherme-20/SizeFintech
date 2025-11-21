@@ -15,17 +15,16 @@ namespace SizeFintech.Domain.Models.Entities
 
         public void AdvancePaymentCalculation()
         {
-
             var prazoDias = (DataVencimento.Date - DateTime.Now.Date).TotalDays;
 
             var fator = Math.Pow(
-                (double)(1 + Taxa.TAXANTECIPACAOMENSAL),
+                1 + (double)Taxa.TAXANTECIPACAOMENSAL,
                 prazoDias / 30.0
             );
 
-            var desagio = ValorBruto / (decimal)fator;
+            var valorLiquido = ValorBruto / (decimal)fator;
 
-            var valorLiquido = ValorBruto - desagio;
+            var desagio = ValorBruto - valorLiquido;
 
             ValorLiquido = Math.Round(valorLiquido, 2);
 

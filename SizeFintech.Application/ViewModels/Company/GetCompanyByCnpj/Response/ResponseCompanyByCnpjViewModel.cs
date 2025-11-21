@@ -22,6 +22,7 @@ namespace SizeFintech.Application.ViewModels.Company.GetCompanyByCnpj.Response
                 Limite = company.LimiteCredito,
                 NotasFiscais = company.NotasFiscais?.Select(nf => new ResponseInvoiceByCnpjViewModel
                 {
+                    Numero =nf.Numero,
                     ValorBruto = nf.ValorBruto,
                     ValorLiquido = nf.ValorLiquido!.Value,
                 }) ?? Enumerable.Empty<ResponseInvoiceByCnpjViewModel>(),
