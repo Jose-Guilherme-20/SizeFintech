@@ -39,6 +39,9 @@ namespace SizeFintech.Application.UseCases.Invoice.InsertInvoice
             if (!await CompanyExists(request.EmpresaId))
                 return false;
 
+            if (!await ValidateInvoiceNumber(request))
+                return false;
+
             var validate = new InsertInvoiceValidation();
 
             var result = validate.Validate(request);
@@ -58,6 +61,19 @@ namespace SizeFintech.Application.UseCases.Invoice.InsertInvoice
             if (company is null)
             {
                 domainNotification.AddNotification("Empresa", "Empresa não encontrada");
+                return false;
+            }
+
+            return true;
+        }
+
+        public async Task<bool> ValidateInvoiceNumber(RequestInsertInvoiceViewModel request)
+        {
+            var invoice = await invoiceRepository.GetByParamsAsync(i => i.Numero == request.Numero);
+
+            if (invoice is not null)
+            {
+                domainNotification.AddNotification("NotaFiscal", $"Já existe uma nota fiscal cadastrada com esse numero {request.Numero}");
                 return false;
             }
 
