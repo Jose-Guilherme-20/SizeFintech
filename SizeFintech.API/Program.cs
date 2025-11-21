@@ -1,3 +1,4 @@
+using System.Reflection;
 using SizeFintech.API.Filters;
 using SizeFintech.Application;
 using SizeFintech.Infra;
@@ -19,7 +20,13 @@ builder.Services.AddControllers(options =>
 });
 
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+
+var xmlFilename = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+
+builder.Services.AddSwaggerGen(c =>
+{
+    c.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmlFilename));
+});
 
 var app = builder.Build();
 

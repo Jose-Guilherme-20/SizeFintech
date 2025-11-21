@@ -11,6 +11,30 @@ namespace SizeFintech.Domain.Models.Entities
         public int RamoId { get; set; }
         public decimal LimiteCredito { get; set; }
         public ICollection<InvoiceEntity>? NotasFiscais { get; set; } 
-        public ICollection<CartEntity>? Carrinhos { get; set; } 
+        public ICollection<CartEntity>? Carrinhos { get; set; }
+
+        public void CalcularLimiteAntecipacao()
+        {
+            if (Faturamento >= 10000 && Faturamento <= 50000)
+            {
+                LimiteCredito =  Faturamento * 0.50m;
+            }
+
+            if (Faturamento >= 50001 && Faturamento <= 100000)
+            {
+                LimiteCredito = RamoId == (int)RamoEnum.Servicos
+                    ? Faturamento * 0.55m
+                    : Faturamento * 0.60m;
+            }
+
+            if (Faturamento > 100001)
+            {
+                LimiteCredito =  RamoId == (int)RamoEnum.Servicos
+                    ? Faturamento * 0.60m
+                    : Faturamento * 0.65m;
+            }
+
+            LimiteCredito =  0;
+        }
     }
 }

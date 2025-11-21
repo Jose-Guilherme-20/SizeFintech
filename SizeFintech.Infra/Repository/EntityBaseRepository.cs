@@ -6,7 +6,7 @@ using SizeFintech.Infra.Context;
 
 namespace SizeFintech.Infra.Repository
 {
-    public class EntityBaseRepository<T>(AppDbContext context) : IRepositoryBase<T> where T : BaseEntity
+    public class EntityBaseRepository<T>(AppDbContext context) : IEntityBaseRepository<T> where T : BaseEntity
     {
 
         public async Task AddAsync(T entity)
