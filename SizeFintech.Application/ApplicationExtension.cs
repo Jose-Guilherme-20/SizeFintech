@@ -1,19 +1,27 @@
 
 using Microsoft.Extensions.DependencyInjection;
 using SizeFintech.Application.Services.DomainNotification;
+using SizeFintech.Application.UseCases.Recebivel.CadastroEmpresa;
 using SizeFintech.Domain.Interfaces.Notification;
 
 namespace SizeFintech.Application
 {
     public static class ApplicationExtension
     {
-        public static ServiceCollection AddApplication(this ServiceCollection services)
+        public static IServiceCollection AddApplication(this IServiceCollection services)
         {
-            
-            
-            services.AddScoped<IDomainNotificationService, DomainNotificationService>();
+
+            #region UseCases
+            services.AddScoped<ICadastrarEmpresaUseCase, CadastrarEmpresaUseCase>();
+            #endregion
+
+            #region Services
+            services.AddScoped<IDomainNotification, DomainNotification>();
+            #endregion
 
             return services;
         }
+
+
     }
 }

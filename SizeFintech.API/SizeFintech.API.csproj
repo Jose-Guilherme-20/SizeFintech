@@ -7,11 +7,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\SizeFintech.Application\SizeFintech.Application.csproj" />
+    <ProjectReference Include="..\SizeFintech.Domain\SizeFintech.Domain.csproj" />
+    <ProjectReference Include="..\SizeFintech.Infra\SizeFintech.Infra.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Controllers\" />
   </ItemGroup>
 
 </Project>

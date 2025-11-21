@@ -7,7 +7,7 @@ namespace SizeFintech.Infra
 {
     public static class InfraExtensions
     {
-        public static IServiceCollection AddInfra(this IServiceCollection services, IConfiguration configuration)
+        public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddDbContext<Context.AppDbContext>( db => db.UseSqlServer(configuration.GetConnectionString("Database")));
 
