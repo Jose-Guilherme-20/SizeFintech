@@ -3,6 +3,7 @@ namespace SizeFintech.Domain.Models.Entities
 {
     public class InvoiceEntity : BaseEntity
     {
+        public int Numero { get; set; }
         public decimal ValorBruto { get; set; }
         public decimal? ValorLiquido { get; set; }
         public DateTime DataVencimento { get; set; }

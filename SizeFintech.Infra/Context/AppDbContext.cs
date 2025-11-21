@@ -1,12 +1,13 @@
 
 using Microsoft.EntityFrameworkCore;
 using SizeFintech.Domain.Models.Entities;
+using SizeFintech.Infra.Context.Interceptor;
 
 namespace SizeFintech.Infra.Context
 {
     public class AppDbContext : DbContext
     {
-        public AppDbContext(DbContextOptions options) : base(options)
+        public AppDbContext(DbContextOptions options, AuditInterceptor auditInterceptor) : base(options)
         {
         }
 

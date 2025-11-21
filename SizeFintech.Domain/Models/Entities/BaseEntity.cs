@@ -5,11 +5,11 @@ namespace SizeFintech.Domain.Models.Entities
     {
         protected BaseEntity()
         {
-            Active = true;
+            Ativo = true;
         }
         public int Id { get; set; }
-        public bool Active { get; set; }
-        public DateTime CreateDate { get; set; }
-        public DateTime? DeletedDate { get; set; }
+        public bool Ativo { get; set; }
+        public DateTime DataCriacao { get; set; }
+        public DateTime? DataExclusao { get; set; }
     }
 }

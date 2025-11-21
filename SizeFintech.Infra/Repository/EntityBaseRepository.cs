@@ -14,12 +14,12 @@ namespace SizeFintech.Infra.Repository
             await context.AddAsync(entity);
         }
 
-        public async Task<IEnumerable<T>> GetAllAsync()
+        public virtual async Task<IEnumerable<T>> GetAllAsync()
         {
             return await context.Set<T>().ToListAsync();
         }
 
-        public async Task<T?> GetByIdAsync(int id)
+        public virtual async Task<T?> GetByIdAsync(int id)
         {
             return await context.Set<T>().FirstOrDefaultAsync(e => e.Id == id); 
         }

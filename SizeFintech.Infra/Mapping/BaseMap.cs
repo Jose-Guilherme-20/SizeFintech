@@ -11,12 +11,13 @@ namespace SizeFintech.Infra.Mapping
         {
             builder.HasKey("Id");
 
-            builder.Property<bool>("Ativo")
+            builder.Property(b => b.Ativo)
+                .HasColumnType("bit")
                 .IsRequired();
-            builder.Property<DateTime>("DataCriacao")
+            builder.Property(b => b.DataCriacao)
                 .HasColumnType("datetime")
                 .IsRequired();
-            builder.Property<DateTime?>("DataExclusao")
+            builder.Property(b => b.DataExclusao)
                 .HasColumnType("datetime")
                 .IsRequired(false);
         }
