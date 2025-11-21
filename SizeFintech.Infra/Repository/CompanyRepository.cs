@@ -1,5 +1,7 @@
 
+using System.Linq.Expressions;
 using Microsoft.EntityFrameworkCore;
+using SizeFintech.Domain.Models.Entities;
 using SizeFintech.Infra.Context;
 
 namespace SizeFintech.Infra.Repository
@@ -14,8 +16,11 @@ namespace SizeFintech.Infra.Repository
 
         public async Task<Domain.Models.Entities.CompanyEntity?> GetByCnpjAsync(string cnpj)
         {
-            return await _context.Set<Domain.Models.Entities.CompanyEntity>()
+            return await _context.Set<CompanyEntity>()
+                .Include(c => c.Carrinho)
+                .Include(c => c.NotasFiscais.Where(n => n.DataExclusao == null && n.CarrinhoId != null ))
                 .FirstOrDefaultAsync(e => e.Cnpj == cnpj);
         }
+
     }
 }

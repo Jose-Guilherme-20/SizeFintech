@@ -39,9 +39,9 @@ namespace SizeFintech.Infra.Mapping
                 .HasForeignKey(e => e.EmpresaId)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            builder.HasMany(e => e.Carrinhos)
+            builder.HasOne(e => e.Carrinho)
                .WithOne(e => e.Empresa)
-               .HasForeignKey(e => e.EmpresaId)
+               .HasForeignKey<CartEntity>(e => e.EmpresaId)
                .OnDelete(DeleteBehavior.Restrict);
 
         }

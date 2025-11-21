@@ -24,8 +24,8 @@ namespace SizeFintech.Infra.Mapping
                 .IsRequired();
 
             builder.HasOne(e => e.Empresa)
-                .WithMany(c => c.Carrinhos)
-                .HasForeignKey(e => e.EmpresaId)
+                .WithOne(c => c.Carrinho)
+                .HasForeignKey<CartEntity>(e => e.EmpresaId)
                 .IsRequired();
         }
     }

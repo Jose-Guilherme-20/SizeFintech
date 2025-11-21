@@ -10,8 +10,8 @@ namespace SizeFintech.Domain.Models.Entities
         public decimal Faturamento { get; set; }
         public int RamoId { get; set; }
         public decimal LimiteCredito { get; set; }
-        public ICollection<InvoiceEntity>? NotasFiscais { get; set; } 
-        public ICollection<CartEntity>? Carrinhos { get; set; }
+        public ICollection<InvoiceEntity?> NotasFiscais { get; set; } 
+        public CartEntity? Carrinho { get; set; }
 
         public void CalcularLimiteAntecipacao()
         {

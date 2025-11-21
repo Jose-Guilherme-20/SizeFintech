@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using SizeFintech.Application.UseCases.Company.GetCompanyByCnpj;
 using SizeFintech.Application.UseCases.Company.InsertCompany;
 using SizeFintech.Application.UseCases.Company.UpdateCompany;
+using SizeFintech.Application.ViewModels.Company.GetCompanyByCnpj.Response;
 using SizeFintech.Application.ViewModels.Company.InsertCompany.Request;
 using SizeFintech.Application.ViewModels.Company.InsertCompany.Response;
 using SizeFintech.Application.ViewModels.Company.UpdateCompany.Request;
@@ -12,6 +14,23 @@ namespace SizeFintech.API.Controllers
     [ApiController]
     public class CompanyController : ControllerBase
     {
+
+        /// <summary>
+        /// Obtém os detalhes de uma empresa com base no CNPJ fornecido.
+        /// </summary>
+        /// <param name="useCase">Responsável por buscar detalhes de um determinado cnpj.</param>
+        /// <param name="cnpj">Identificador de uma empresa.</param>
+        /// <returns>Retorna detalhes de uma empresa.</returns>
+        [ProducesResponseType(typeof(ResponseCompanyByCnpjViewModel), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [HttpGet("{cnpj}")]
+        public async Task<ActionResult<ResponseCompanyByCnpjViewModel>> GetCompanyByCnpjAsync([FromServices] IGetCompanyByCnpjUseCase useCase ,[FromRoute] string cnpj)
+        {
+            return Ok(await useCase.ExecuteAsync(cnpj));
+        }
+
+
         /// <summary>
         /// Cria uma nova empresa no sistema.
         /// </summary>
@@ -19,7 +38,7 @@ namespace SizeFintech.API.Controllers
         /// <param name="request">Parâmetros necessários para criar uma empresa.</param>
         /// <returns>Retorna o Id da nova empresa.</returns>
         [ProducesResponseType(typeof(ResponseInsertCompanyViewModel), StatusCodes.Status201Created)]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [HttpPost]
         public async Task<ActionResult<ResponseInsertCompanyViewModel>> InsertCompanyAsync([FromServices] IInsertCompanyUseCase useCase ,[FromBody] RequestInsertCompanyViewModel request)
@@ -34,7 +53,7 @@ namespace SizeFintech.API.Controllers
         /// <param name="request">Parâmetros necessários para atualizar uma empresa.</param>
         /// <param name="id">Parâmetros necessários para buscar uma empresa.</param>
         [ProducesResponseType(StatusCodes.Status204NoContent)]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [HttpPut("{id}")]
         public async Task<ActionResult<ResponseInsertCompanyViewModel>> UpdateCompanyAsync([FromServices] IUpdateCompanyUseCase useCase, [FromRoute] int id ,[FromBody] RequestUpdateCompanyViewModel request)

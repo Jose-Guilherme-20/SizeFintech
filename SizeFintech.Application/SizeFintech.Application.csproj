@@ -16,7 +16,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="ViewModels\Company\GetCompanyByCnpj\Request\" />
     <Folder Include="ViewModels\Company\UpdateCompany\Response\" />
+    <Folder Include="ViewModels\Invoice\GetInvoiceByCnpj\Request\" />
   </ItemGroup>
 
 </Project>
