@@ -36,7 +36,7 @@ namespace SizeFintech.Application.UseCases.Company.InsertCompany
 
         public async Task<bool> Validation(RequestInsertCompanyViewModel request)
         {
-            if(! await CompanyExistsAsync(request.Cnpj))
+            if(await CompanyExistsAsync(request.Cnpj))
                 return false;
 
             var validate = new InsertCompanyValidation();
