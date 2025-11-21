@@ -20,7 +20,7 @@ namespace SizeFintech.API.Controllers
         /// </summary>
         /// <param name="useCase">Responsável por buscar detalhes de um determinado cnpj.</param>
         /// <param name="cnpj">Identificador de uma empresa.</param>
-        /// <returns>Retorna detalhes de uma empresa.</returns>
+        /// <returns>Retorna detalhes de uma empresa e suas notas fiscais que estão no carrinho.</returns>
         [ProducesResponseType(typeof(ResponseCompanyByCnpjViewModel), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
