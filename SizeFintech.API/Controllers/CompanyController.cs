@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using SizeFintech.Application.UseCases.Company.UpdateCompany;
 using SizeFintech.Application.UseCases.Recebivel.InsertCompany;
+using SizeFintech.Application.ViewModels.Company.UpdateCompany.Request;
 using SizeFintech.Application.ViewModels.Recebivel.CadastroEmpresa.Request;
 using SizeFintech.Application.ViewModels.Recebivel.CadastroEmpresa.Response;
 
@@ -23,6 +25,22 @@ namespace SizeFintech.API.Controllers
         public async Task<ActionResult<ResponseInsertCompanyViewModel>> InsertCompanyAsync([FromServices] IInsertCompanyUseCase useCase ,[FromBody] RequestInsertCompanyViewModel request)
         {
             return Created(string.Empty, await useCase.ExecuteAsync(request));
+        }
+
+        /// <summary>
+        /// Atualiza uma empresa no sistema.
+        /// </summary>
+        /// <param name="useCase">Use case responsável por executar o fluxo para atualizar empresas.</param>
+        /// <param name="request">Parâmetros necessários para atualizar uma empresa.</param>
+        /// <param name="id">Parâmetros necessários para buscar uma empresa.</param>
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [HttpPut("{id}")]
+        public async Task<ActionResult<ResponseInsertCompanyViewModel>> UpdateCompanyAsync([FromServices] IUpdateCompanyUseCase useCase, [FromRoute] int id ,[FromBody] RequestUpdateCompanyViewModel request)
+        {
+            await useCase.ExecuteAsync(id, request);
+            return NoContent();
         }
     }
 }

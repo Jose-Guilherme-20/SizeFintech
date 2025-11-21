@@ -18,6 +18,7 @@
   <ItemGroup>
     <Folder Include="UseCases\Invoice\" />
     <Folder Include="Validations\Invoice\" />
+    <Folder Include="ViewModels\Company\UpdateCompany\Response\" />
     <Folder Include="ViewModels\Invoice\" />
   </ItemGroup>
 

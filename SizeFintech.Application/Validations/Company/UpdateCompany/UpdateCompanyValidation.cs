@@ -1,15 +1,18 @@
-
 using FluentValidation;
 using SizeFintech.API.Extensions;
+using SizeFintech.Application.ViewModels.Company.UpdateCompany.Request;
 using SizeFintech.Application.ViewModels.Recebivel.CadastroEmpresa.Request;
 using SizeFintech.Domain.Models.Enums;
 
-namespace SizeFintech.Application.Validations.Recebivel.InsertCompany
+namespace SizeFintech.Application.Validations.Company.UpdateCompany
 {
-    public class InsertCompanyValidation : AbstractValidator<RequestInsertCompanyViewModel>
+    public class UpdateCompanyValidation : AbstractValidator<RequestUpdateCompanyViewModel>
     {
-        public InsertCompanyValidation()
+        public UpdateCompanyValidation()
         {
+            RuleFor(x => x.Id)
+                .GreaterThan(0).WithMessage("O Id da empresa deve ser maior que zero.");
+
             RuleFor(x => x.Nome)
            .NotEmpty().WithMessage("O nome é obrigatório.")
            .MaximumLength(150).WithMessage("O nome deve ter no máximo 150 caracteres.");
@@ -26,7 +29,5 @@ namespace SizeFintech.Application.Validations.Recebivel.InsertCompany
                 .Must(r => r == RamoEnum.Servicos || r == RamoEnum.Produtos)
                 .WithMessage("O ramo deve ser 'Serviços' ou 'Produtos'.");
         }
-
     }
 }
-
