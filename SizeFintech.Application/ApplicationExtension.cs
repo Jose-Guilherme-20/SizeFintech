@@ -1,6 +1,7 @@
 
 using Microsoft.Extensions.DependencyInjection;
 using SizeFintech.Application.UseCases.Cart.InsertInvoiceToCart;
+using SizeFintech.Application.UseCases.Cart.RemoveInvoiceToCart;
 using SizeFintech.Application.UseCases.Company.GetCompanyByCnpj;
 using SizeFintech.Application.UseCases.Company.InsertCompany;
 using SizeFintech.Application.UseCases.Company.UpdateCompany;
@@ -23,6 +24,7 @@ namespace SizeFintech.Application
             services.AddScoped<IInsertInvoiceUseCase, InsertInvoiceUseCase>();
             services.AddScoped<IRemoveInvoiceUseCase, RemoveInvoiceUseCase>();
             services.AddScoped<IInsertInvoiceToCartUseCase, InsertInvoiceToCartUseCase>();
+            services.AddScoped<IRemoveInvoiceToCartUSeCase, RemoveInvoiceToCartUSeCase>();
             #endregion
 
             #region Services

@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using SizeFintech.Application.UseCases.Cart.InsertInvoiceToCart;
+using SizeFintech.Application.UseCases.Cart.RemoveInvoiceToCart;
 using SizeFintech.Application.ViewModels.Cart.InsertInvoiceToCart.Response;
+using SizeFintech.Application.ViewModels.Cart.RemoveInvoiceToCart.Response;
 
 namespace SizeFintech.API.Controllers
 {
@@ -24,5 +26,25 @@ namespace SizeFintech.API.Controllers
         {
             return Created(string.Empty, await useCase.ExecuteAsync(invoiceId));
         }
+
+        /// <summary>
+        /// Remove uma fatura (invoice) do carrinho (cart)
+        /// </summary>
+        /// <param name="useCase">Responsável por executar o fluxo para remover a nota do carrinho</param>
+        /// <param name="invoiceId">Identificador da nota fiscal</param>
+        /// <returns>Retorna os dados atualizados do carrinho.</returns>
+        [ProducesResponseType(typeof(ResponseRemoveInvoiceToCartViewModel), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [HttpDelete("{invoiceId}")]
+        public async Task<ActionResult<ResponseRemoveInvoiceToCartViewModel>> RemoveInvoiceFromCartAsync(
+            [FromServices] IRemoveInvoiceToCartUSeCase useCase,
+            [FromRoute] int invoiceId)
+        {
+            var result = await useCase.ExecuteAsync(invoiceId);
+
+            return Ok(result);
+        }
+
     }
 }

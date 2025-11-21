@@ -17,6 +17,7 @@
 
   <ItemGroup>
     <Folder Include="ViewModels\Cart\InsertInvoiceToCart\Request\" />
+    <Folder Include="ViewModels\Cart\RemoveInvoiceToCart\Request\" />
     <Folder Include="ViewModels\Company\GetCompanyByCnpj\Request\" />
     <Folder Include="ViewModels\Company\UpdateCompany\Response\" />
     <Folder Include="ViewModels\Invoice\GetInvoiceByCnpj\Request\" />
