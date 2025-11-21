@@ -15,4 +15,10 @@
     <PackageReference Include="FluentValidation" Version="12.1.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="UseCases\Invoice\" />
+    <Folder Include="Validations\Invoice\" />
+    <Folder Include="ViewModels\Invoice\" />
+  </ItemGroup>
+
 </Project>
