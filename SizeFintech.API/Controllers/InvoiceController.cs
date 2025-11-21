@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using SizeFintech.Application.UseCases.Invoice.InsertInvoice;
+using SizeFintech.Application.UseCases.Invoice.RemoveInvoice;
 using SizeFintech.Application.ViewModels.Invoice.InsertInvoice.Request;
 using SizeFintech.Application.ViewModels.Invoice.InsertInvoice.Response;
 
@@ -24,6 +25,21 @@ namespace SizeFintech.API.Controllers
         public async Task<ActionResult<ResponseInsertInvoiceViewModel>> InsertInvoiceAsync([FromServices] IInsertInvoiceUseCase useCase, [FromBody] RequestInsertInvoiceViewModel request)
         {
             return Created(string.Empty, await useCase.ExecuteAsync(request));
+        }
+
+        /// <summary>
+        /// Exclui uma fatura (invoice) pelo seu identificador.
+        /// </summary>
+        /// <param name="useCase">Responsável por fazer o delete lógico da nota fiscal.</param>
+        /// <param name="id">Identificador da nota.</param>
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ProblemDetails),StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [HttpDelete("{id}")]
+        public async Task<ActionResult> DeleteInvoiceAsync([FromServices] IRemoveInvoiceUseCase useCase, [FromRoute] int id)
+        {
+            await useCase.ExecuteAsync(id);
+            return NoContent();
         }
     }
 }
