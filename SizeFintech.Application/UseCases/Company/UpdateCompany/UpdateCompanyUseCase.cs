@@ -43,6 +43,7 @@ namespace SizeFintech.Application.UseCases.Company.UpdateCompany
             if (!result.IsValid)
             {
                 domainNotification.AddNotifications(result);
+                return false;
             }
 
             return true;
