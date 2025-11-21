@@ -1,4 +1,5 @@
 
+using System.Linq.Expressions;
 using Microsoft.EntityFrameworkCore;
 using SizeFintech.Domain.Interfaces.Repository;
 using SizeFintech.Domain.Models.Entities;
@@ -22,6 +23,11 @@ namespace SizeFintech.Infra.Repository
         public virtual async Task<T?> GetByIdAsync(int id)
         {
             return await context.Set<T>().FirstOrDefaultAsync(e => e.Id == id); 
+        }
+
+        public virtual async Task<T?> GetByParamsAsync(Expression<Func<T, bool>> predicate)
+        {
+            return await context.Set<T>().FirstOrDefaultAsync(predicate);
         }
 
         public void Remove(T entity)

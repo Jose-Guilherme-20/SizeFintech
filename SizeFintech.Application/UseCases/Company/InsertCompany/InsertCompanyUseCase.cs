@@ -1,12 +1,12 @@
 using System.Threading.Tasks;
-using SizeFintech.Application.Validations.Recebivel.InsertCompany;
-using SizeFintech.Application.ViewModels.Recebivel.CadastroEmpresa.Request;
-using SizeFintech.Application.ViewModels.Recebivel.CadastroEmpresa.Response;
+using SizeFintech.Application.Validations.Company.InsertCompany;
+using SizeFintech.Application.ViewModels.Company.InsertCompany.Request;
+using SizeFintech.Application.ViewModels.Company.InsertCompany.Response;
 using SizeFintech.Domain.Interfaces.Notification;
 using SizeFintech.Domain.Interfaces.Repository;
 using SizeFintech.Domain.Interfaces.UnitOfWork;
 
-namespace SizeFintech.Application.UseCases.Recebivel.InsertCompany
+namespace SizeFintech.Application.UseCases.Company.InsertCompany
 {
     public class InsertCompanyUseCase
         ( ICompanyRepository CompanyRepository,

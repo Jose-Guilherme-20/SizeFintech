@@ -16,9 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="UseCases\Invoice\" />
     <Folder Include="ViewModels\Company\UpdateCompany\Response\" />
-    <Folder Include="ViewModels\Invoice\InsertInvoice\Response\" />
   </ItemGroup>
 
 </Project>

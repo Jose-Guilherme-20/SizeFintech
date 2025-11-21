@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using SizeFintech.Application.UseCases.Company.InsertCompany;
 using SizeFintech.Application.UseCases.Company.UpdateCompany;
-using SizeFintech.Application.UseCases.Recebivel.InsertCompany;
+using SizeFintech.Application.ViewModels.Company.InsertCompany.Request;
+using SizeFintech.Application.ViewModels.Company.InsertCompany.Response;
 using SizeFintech.Application.ViewModels.Company.UpdateCompany.Request;
-using SizeFintech.Application.ViewModels.Recebivel.CadastroEmpresa.Request;
-using SizeFintech.Application.ViewModels.Recebivel.CadastroEmpresa.Response;
 
 namespace SizeFintech.API.Controllers
 {

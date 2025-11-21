@@ -1,5 +1,4 @@
-
-namespace SizeFintech.Application.ViewModels.Recebivel.CadastroEmpresa.Response
+namespace SizeFintech.Application.ViewModels.Company.InsertCompany.Response
 {
     public class ResponseInsertCompanyViewModel
     {

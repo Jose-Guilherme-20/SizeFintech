@@ -1,7 +1,7 @@
-﻿using SizeFintech.Application.ViewModels.Recebivel.CadastroEmpresa.Request;
-using SizeFintech.Application.ViewModels.Recebivel.CadastroEmpresa.Response;
+﻿using SizeFintech.Application.ViewModels.Company.InsertCompany.Request;
+using SizeFintech.Application.ViewModels.Company.InsertCompany.Response;
 
-namespace SizeFintech.Application.UseCases.Recebivel.InsertCompany
+namespace SizeFintech.Application.UseCases.Company.InsertCompany
 {
     public interface IInsertCompanyUseCase
     {

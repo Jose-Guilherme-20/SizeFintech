@@ -1,7 +1,6 @@
 using FluentValidation;
 using SizeFintech.API.Extensions;
 using SizeFintech.Application.ViewModels.Company.UpdateCompany.Request;
-using SizeFintech.Application.ViewModels.Recebivel.CadastroEmpresa.Request;
 using SizeFintech.Domain.Models.Enums;
 
 namespace SizeFintech.Application.Validations.Company.UpdateCompany

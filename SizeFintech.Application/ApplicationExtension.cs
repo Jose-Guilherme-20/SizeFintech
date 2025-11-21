@@ -1,7 +1,8 @@
 
 using Microsoft.Extensions.DependencyInjection;
+using SizeFintech.Application.UseCases.Company.InsertCompany;
 using SizeFintech.Application.UseCases.Company.UpdateCompany;
-using SizeFintech.Application.UseCases.Recebivel.InsertCompany;
+using SizeFintech.Application.UseCases.Invoice.InsertInvoice;
 using SizeFintech.Domain.Interfaces.Notification;
 using SizeFintech.Domain.Models.Notification;
 
@@ -15,6 +16,7 @@ namespace SizeFintech.Application
             #region UseCases
             services.AddScoped<IInsertCompanyUseCase, InsertCompanyUseCase>();
             services.AddScoped<IUpdateCompanyUseCase, UpdateCompanyUseCase>();
+            services.AddScoped<IInsertInvoiceUseCase, InsertInvoiceUseCase>();
             #endregion
 
             #region Services

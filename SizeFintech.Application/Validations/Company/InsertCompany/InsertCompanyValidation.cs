@@ -1,10 +1,10 @@
 
 using FluentValidation;
 using SizeFintech.API.Extensions;
-using SizeFintech.Application.ViewModels.Recebivel.CadastroEmpresa.Request;
+using SizeFintech.Application.ViewModels.Company.InsertCompany.Request;
 using SizeFintech.Domain.Models.Enums;
 
-namespace SizeFintech.Application.Validations.Recebivel.InsertCompany
+namespace SizeFintech.Application.Validations.Company.InsertCompany
 {
     public class InsertCompanyValidation : AbstractValidator<RequestInsertCompanyViewModel>
     {

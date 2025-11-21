@@ -1,8 +1,7 @@
-
 using SizeFintech.Domain.Models.Entities;
 using SizeFintech.Domain.Models.Enums;
 
-namespace SizeFintech.Application.ViewModels.Recebivel.CadastroEmpresa.Request
+namespace SizeFintech.Application.ViewModels.Company.InsertCompany.Request
 {
     public class RequestInsertCompanyViewModel
     {

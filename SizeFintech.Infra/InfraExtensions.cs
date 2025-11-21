@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using SizeFintech.Domain.Interfaces.Repository;
+using SizeFintech.Infra.Context.Interceptor;
 using SizeFintech.Infra.Repository;
 
 namespace SizeFintech.Infra
@@ -11,6 +12,10 @@ namespace SizeFintech.Infra
     {
         public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
         {
+            #region Interceptors
+            services.AddScoped<AuditInterceptor>();
+            #endregion
+
             #region DbContext
             services.AddDbContext<Context.AppDbContext>( db => db.UseSqlServer(configuration.GetConnectionString("Database")));
             #endregion
