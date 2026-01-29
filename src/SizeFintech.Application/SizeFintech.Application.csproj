@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SizeFintech.Domain\SizeFintech.Domain.csproj" />
+    <ProjectReference Include="..\SizeFintech.Infra\SizeFintech.Infra.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="12.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="ViewModels\Cart\InsertInvoiceToCart\Request\" />
+    <Folder Include="ViewModels\Cart\RemoveInvoiceToCart\Request\" />
+    <Folder Include="ViewModels\Company\GetCompanyByCnpj\Request\" />
+    <Folder Include="ViewModels\Company\UpdateCompany\Response\" />
+    <Folder Include="ViewModels\Invoice\GetInvoiceByCnpj\Request\" />
+  </ItemGroup>
+
+</Project>

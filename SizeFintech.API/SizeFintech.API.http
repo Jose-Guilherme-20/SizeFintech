@@ -1,6 +1,0 @@
-@SizeFintech.API_HostAddress = http://localhost:5038
-
-GET {{SizeFintech.API_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###
